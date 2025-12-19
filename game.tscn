@@ -393,7 +393,7 @@ position = Vector2(265.5, 554.5)
 shape = SubResource("RectangleShape2D_7jktm")
 
 [node name="ground14" type="StaticBody2D" parent="GROUND"]
-position = Vector2(1467.0001, -2048)
+position = Vector2(-317.99988, 52)
 scale = Vector2(-0.24298653, 0.90236956)
 metadata/_edit_group_ = true
 
