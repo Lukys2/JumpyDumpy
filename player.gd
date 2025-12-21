@@ -4,7 +4,7 @@ extends CharacterBody2D
 var speed = 300
 
 var min_jump_power = -250
-var max_jump_power = -800
+var max_jump_power = -900
 var min_jump_x = 100
 var max_jump_x = 500
 
