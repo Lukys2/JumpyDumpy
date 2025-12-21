@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://efdjijdwlf6r"]
+[gd_scene load_steps=40 format=4 uid="uid://efdjijdwlf6r"]
 
 [ext_resource type="Script" uid="uid://cxtc5krp2tra4" path="res://player.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://vw2401apmf5w" path="res://assets/player/charge/opickacharge1.png" id="2_mfdv2"]
@@ -15,6 +15,8 @@
 [ext_resource type="Script" uid="uid://b50rpnl7xu43q" path="res://canvas_layer.gd" id="7_eow3j"]
 [ext_resource type="Texture2D" uid="uid://bf0gdeps3mbpe" path="res://assets/player/jump/opickajump.png" id="11_iotsf"]
 [ext_resource type="Texture2D" uid="uid://cw254qj3otyob" path="res://assets/player/run/opickarunbetter-Sheet-Sheet2-export.png" id="13_215e1"]
+[ext_resource type="Texture2D" uid="uid://crfllkamwesmg" path="res://GRASSBLOCKextraminicurve1.png" id="16_80cx4"]
+[ext_resource type="Texture2D" uid="uid://detgwlvqd5fcf" path="res://WOODBLOCK.png" id="17_e8heu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_80cx4"]
 atlas = ExtResource("2_mfdv2")
@@ -171,8 +173,101 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e2o6t"]
 size = Vector2(130.15527, 153.62585)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7jktm"]
-size = Vector2(423, 137)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e8heu"]
+texture = ExtResource("16_80cx4")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:0/0/terrains_peering_bit/bottom_right_corner = 0
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0/terrains_peering_bit/right_side = 0
+0:1/0/terrains_peering_bit/bottom_right_corner = 0
+0:1/0/terrains_peering_bit/top_right_corner = 0
+0:2/0 = 0
+0:2/0/terrain_set = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:2/0/terrains_peering_bit/top_right_corner = 0
+1:2/0 = 0
+1:2/0/terrain_set = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:2/0/terrains_peering_bit/top_left_corner = 0
+1:2/0/terrains_peering_bit/top_side = 0
+1:2/0/terrains_peering_bit/top_right_corner = 0
+1:1/0 = 0
+1:1/0/terrain_set = 0
+1:1/0/terrain = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:1/0/terrains_peering_bit/right_side = 0
+1:1/0/terrains_peering_bit/bottom_right_corner = 0
+1:1/0/terrains_peering_bit/bottom_side = 0
+1:1/0/terrains_peering_bit/bottom_left_corner = 0
+1:1/0/terrains_peering_bit/left_side = 0
+1:1/0/terrains_peering_bit/top_left_corner = 0
+1:1/0/terrains_peering_bit/top_side = 0
+1:1/0/terrains_peering_bit/top_right_corner = 0
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0/terrains_peering_bit/bottom_right_corner = 0
+1:0/0/terrains_peering_bit/bottom_side = 0
+1:0/0/terrains_peering_bit/bottom_left_corner = 0
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:0/0/terrains_peering_bit/bottom_left_corner = 0
+2:1/0 = 0
+2:1/0/terrain_set = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:1/0/terrains_peering_bit/bottom_left_corner = 0
+2:1/0/terrains_peering_bit/left_side = 0
+2:1/0/terrains_peering_bit/top_left_corner = 0
+2:2/0 = 0
+2:2/0/terrain_set = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:2/0/terrains_peering_bit/top_left_corner = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rvswv"]
+texture = ExtResource("17_e8heu")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0 = 0
+0:1/0/terrain_set = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:2/0 = 0
+0:2/0/terrain_set = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:2/0 = 0
+1:2/0/terrain_set = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:1/0 = 0
+1:1/0/terrain_set = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:0/0 = 0
+2:0/0/terrain_set = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:1/0 = 0
+2:1/0/terrain_set = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:2/0 = 0
+2:2/0/terrain_set = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_rvswv"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+sources/2 = SubResource("TileSetAtlasSource_e8heu")
+sources/3 = SubResource("TileSetAtlasSource_rvswv")
 
 [node name="game" type="Node2D"]
 
@@ -198,216 +293,6 @@ position = Vector2(840.6751, -445.94186)
 scale = Vector2(2.1336932, 2.1336932)
 zoom = Vector2(0.635, 0.635)
 
-[node name="GROUND" type="Node2D" parent="."]
-position = Vector2(2, -35)
-
-[node name="ground" type="StaticBody2D" parent="GROUND"]
-scale = Vector2(1.0662547, 0.98695105)
-metadata/_edit_group_ = true
-
-[node name="ColorRect" type="ColorRect" parent="GROUND/ground"]
-offset_left = 57.0
-offset_top = 486.0
-offset_right = 479.0
-offset_bottom = 625.0
-color = Color(0.31268385, 0.24606565, 0.08863904, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GROUND/ground"]
-position = Vector2(265.5, 554.5)
-shape = SubResource("RectangleShape2D_7jktm")
-
-[node name="ground2" type="StaticBody2D" parent="GROUND"]
-position = Vector2(885, -169)
-scale = Vector2(1.0642146, 0.9869991)
-metadata/_edit_group_ = true
-
-[node name="ColorRect" type="ColorRect" parent="GROUND/ground2"]
-offset_left = 57.0
-offset_top = 486.0
-offset_right = 479.0
-offset_bottom = 625.0
-color = Color(0.31268385, 0.24606565, 0.08863904, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GROUND/ground2"]
-position = Vector2(265.5, 554.5)
-shape = SubResource("RectangleShape2D_7jktm")
-
-[node name="ground3" type="StaticBody2D" parent="GROUND"]
-position = Vector2(1585, -474.00006)
-scale = Vector2(0.2699197, 1.019621)
-metadata/_edit_group_ = true
-
-[node name="ColorRect" type="ColorRect" parent="GROUND/ground3"]
-offset_left = 57.0
-offset_top = 486.0
-offset_right = 479.0
-offset_bottom = 625.0
-color = Color(0.31268385, 0.24606565, 0.08863904, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GROUND/ground3"]
-position = Vector2(265.5, 554.5)
-shape = SubResource("RectangleShape2D_7jktm")
-
-[node name="ground4" type="StaticBody2D" parent="GROUND"]
-position = Vector2(658.00006, -765)
-scale = Vector2(1.0662547, 0.98695105)
-metadata/_edit_group_ = true
-
-[node name="ColorRect" type="ColorRect" parent="GROUND/ground4"]
-offset_left = 57.0
-offset_top = 486.0
-offset_right = 479.0
-offset_bottom = 625.0
-color = Color(0.31268385, 0.24606565, 0.08863904, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GROUND/ground4"]
-position = Vector2(265.5, 554.5)
-shape = SubResource("RectangleShape2D_7jktm")
-
-[node name="ground5" type="StaticBody2D" parent="GROUND"]
-position = Vector2(1244, -636)
-scale = Vector2(0.28582346, 0.34715647)
-metadata/_edit_group_ = true
-
-[node name="ColorRect" type="ColorRect" parent="GROUND/ground5"]
-offset_left = 57.0
-offset_top = 486.0
-offset_right = 479.0
-offset_bottom = 625.0
-color = Color(0.31268385, 0.24606565, 0.08863904, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GROUND/ground5"]
-position = Vector2(265.5, 554.5)
-shape = SubResource("RectangleShape2D_7jktm")
-
-[node name="ground6" type="StaticBody2D" parent="GROUND"]
-position = Vector2(40.999996, -1908.0001)
-scale = Vector2(0.11769771, 1.560488)
-metadata/_edit_group_ = true
-
-[node name="ColorRect" type="ColorRect" parent="GROUND/ground6"]
-offset_left = 57.0
-offset_top = 486.0
-offset_right = 479.0
-offset_bottom = 625.0
-color = Color(0.31268385, 0.24606565, 0.08863904, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GROUND/ground6"]
-position = Vector2(265.5, 554.5)
-shape = SubResource("RectangleShape2D_7jktm")
-
-[node name="ground7" type="StaticBody2D" parent="GROUND"]
-position = Vector2(151, -1216)
-scale = Vector2(1.0193478, 0.98695105)
-metadata/_edit_group_ = true
-
-[node name="ColorRect" type="ColorRect" parent="GROUND/ground7"]
-offset_left = 57.0
-offset_top = 486.0
-offset_right = 479.0
-offset_bottom = 625.0
-color = Color(0.31268385, 0.24606565, 0.08863904, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GROUND/ground7"]
-position = Vector2(265.5, 554.5)
-shape = SubResource("RectangleShape2D_7jktm")
-
-[node name="ground8" type="StaticBody2D" parent="GROUND"]
-position = Vector2(321, -2100)
-scale = Vector2(0.11769771, 1.560488)
-metadata/_edit_group_ = true
-
-[node name="ColorRect" type="ColorRect" parent="GROUND/ground8"]
-offset_left = 57.0
-offset_top = 486.0
-offset_right = 479.0
-offset_bottom = 625.0
-color = Color(0.31268385, 0.24606565, 0.08863904, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GROUND/ground8"]
-position = Vector2(265.5, 554.5)
-shape = SubResource("RectangleShape2D_7jktm")
-
-[node name="ground9" type="StaticBody2D" parent="GROUND"]
-position = Vector2(49.999996, -2319)
-scale = Vector2(0.11769771, 1.560488)
-metadata/_edit_group_ = true
-
-[node name="ColorRect" type="ColorRect" parent="GROUND/ground9"]
-offset_left = 57.0
-offset_top = 486.0
-offset_right = 479.0
-offset_bottom = 625.0
-color = Color(0.31268385, 0.24606565, 0.08863904, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GROUND/ground9"]
-position = Vector2(265.5, 554.5)
-shape = SubResource("RectangleShape2D_7jktm")
-
-[node name="ground11" type="StaticBody2D" parent="GROUND"]
-position = Vector2(705, -1462)
-scale = Vector2(0.37955752, 0.3128957)
-metadata/_edit_group_ = true
-
-[node name="ColorRect" type="ColorRect" parent="GROUND/ground11"]
-offset_left = 57.0
-offset_top = 486.0
-offset_right = 479.0
-offset_bottom = 625.0
-color = Color(0.31268385, 0.24606565, 0.08863904, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GROUND/ground11"]
-position = Vector2(265.5, 554.5)
-shape = SubResource("RectangleShape2D_7jktm")
-
-[node name="ground12" type="StaticBody2D" parent="GROUND"]
-position = Vector2(-1041, 645)
-scale = Vector2(7.1862555, 0.26694)
-metadata/_edit_group_ = true
-
-[node name="ColorRect" type="ColorRect" parent="GROUND/ground12"]
-offset_left = 57.0
-offset_top = 486.0
-offset_right = 479.0
-offset_bottom = 625.0
-color = Color(0.31268385, 0.24606565, 0.08863904, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GROUND/ground12"]
-position = Vector2(265.5, 554.5)
-shape = SubResource("RectangleShape2D_7jktm")
-
-[node name="ground13" type="StaticBody2D" parent="GROUND"]
-position = Vector2(909, -812.99994)
-scale = Vector2(0.14402503, 0.43378288)
-metadata/_edit_group_ = true
-
-[node name="ColorRect" type="ColorRect" parent="GROUND/ground13"]
-offset_left = 57.0
-offset_top = 486.0
-offset_right = 479.0
-offset_bottom = 625.0
-color = Color(0.31268385, 0.24606565, 0.08863904, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GROUND/ground13"]
-position = Vector2(265.5, 554.5)
-shape = SubResource("RectangleShape2D_7jktm")
-
-[node name="ground14" type="StaticBody2D" parent="GROUND"]
-position = Vector2(-2003.9999, -1442)
-scale = Vector2(-0.24298653, 0.90236956)
-metadata/_edit_group_ = true
-
-[node name="ColorRect" type="ColorRect" parent="GROUND/ground14"]
-offset_left = 57.0
-offset_top = 486.0
-offset_right = 479.0
-offset_bottom = 625.0
-color = Color(0.31268385, 0.24606565, 0.08863904, 1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="GROUND/ground14"]
-position = Vector2(265.5, 554.5)
-shape = SubResource("RectangleShape2D_7jktm")
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("player")]
 layer = -1
 script = ExtResource("7_eow3j")
@@ -422,3 +307,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.47058824, 0.4392157, 0.9137255, 0)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAAKAOj/AgABAAEAAAALAOj/AgABAAEAAAALAOn/AgABAAIAAAAKAOn/AgABAAIAAAAJAOn/AgAAAAIAAAAJAOj/AgAAAAEAAAAJAOf/AgAAAAAAAAAKAOf/AgABAAAAAAALAOf/AgABAAAAAAAMAOj/AgABAAEAAAAMAOn/AgABAAIAAAAMAOf/AgABAAAAAAANAOj/AgABAAEAAAANAOn/AgABAAIAAAANAOf/AgABAAAAAAAOAOj/AgABAAEAAAAOAOn/AgABAAIAAAAOAOf/AgABAAAAAAAPAOj/AgABAAEAAAAPAOn/AgABAAIAAAAPAOf/AgABAAAAAAAQAOj/AgABAAEAAAAQAOn/AgABAAIAAAAQAOf/AgABAAAAAAARAOj/AgACAAEAAAARAOn/AgACAAIAAAARAOf/AgACAAAAAAAEAPT/AgABAAEAAAAFAPT/AgABAAEAAAAFAPX/AgABAAIAAAAEAPX/AgABAAIAAAADAPX/AgAAAAIAAAADAPT/AgAAAAEAAAADAPP/AgAAAAAAAAAEAPP/AgABAAAAAAAFAPP/AgABAAAAAAAGAPT/AgABAAEAAAAGAPX/AgABAAIAAAAGAPP/AgABAAAAAAAHAPT/AgABAAEAAAAHAPX/AgABAAIAAAAHAPP/AgABAAAAAAAIAPT/AgACAAEAAAAIAPX/AgACAAIAAAAIAPP/AgACAAAAAAALAPL/AgABAAEAAAAMAPL/AgABAAEAAAAMAPP/AgABAAIAAAALAPP/AgABAAIAAAAKAPP/AgAAAAIAAAAKAPL/AgAAAAEAAAAKAPH/AgAAAAAAAAALAPH/AgABAAAAAAAMAPH/AgABAAAAAAANAPL/AgACAAEAAAANAPP/AgACAAIAAAANAPH/AgACAAAAAAAQAO7/AgABAAEAAAARAO7/AgABAAEAAAARAO//AgABAAIAAAAQAO//AgABAAIAAAAPAO//AgAAAAIAAAAPAO7/AgAAAAEAAAAPAO3/AgAAAAAAAAAQAO3/AgABAAAAAAARAO3/AgABAAAAAAASAO7/AgABAAEAAAASAO//AgABAAIAAAASAO3/AgABAAAAAAATAO7/AgABAAEAAAATAO//AgABAAIAAAATAO3/AgABAAAAAAAUAO7/AgABAAEAAAAUAO//AgABAAIAAAAUAO3/AgABAAAAAAAVAO7/AgABAAEAAAAVAO//AgABAAIAAAAVAO3/AgABAAAAAAAWAO7/AgACAAEAAAAWAO//AgACAAIAAAAWAO3/AgACAAAAAAAHAO3/AgABAAEAAAAIAO3/AgACAAEAAAAIAO7/AgACAAIAAAAHAO7/AgABAAIAAAAGAO7/AgABAAIAAAAGAO3/AgABAAEAAAAGAOz/AgABAAAAAAAHAOz/AgABAAAAAAAIAOz/AgACAAAAAAAFAO7/AgABAAIAAAAFAO3/AgABAAEAAAAFAOz/AgABAAAAAAAEAO7/AgABAAIAAAAEAO3/AgABAAEAAAAEAOz/AgABAAAAAAADAO7/AgABAAIAAAADAO3/AgABAAEAAAADAOz/AgABAAAAAAACAO7/AgABAAIAAAACAO3/AgABAAEAAAACAOz/AgABAAAAAAABAO7/AgAAAAIAAAABAO3/AgAAAAEAAAABAOz/AgAAAAAAAAA=")
+tile_set = SubResource("TileSet_rvswv")
