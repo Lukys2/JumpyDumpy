@@ -18,12 +18,11 @@ var is_wall_clinging := false
 var wall_normal := Vector2.ZERO
 
 @onready var player_animations = $Sprite2D
+@onready var wall_hang_check = $WallHangCheck
 
 
 
 func _physics_process(_delta):
-	
-	
 	
 	if not is_on_floor():
 		velocity += get_gravity() * _delta
@@ -80,12 +79,16 @@ func _physics_process(_delta):
 		for i in range(get_slide_collision_count()):
 			var collision = get_slide_collision(i)
 			var normal = collision.get_normal()
+			
 			if abs(normal.y) < 0.2:
 				touching_wall = true
 				wall_normal = normal
 				if velocity.y > 0:
 					velocity.y = min(velocity.y, 110)  # nebo 0 pro okamžité přilepení
+					
 		is_wall_clinging = touching_wall
+	else:
+		is_wall_clinging = false
 
 	# WALL JUMP
 	if Input.is_action_just_pressed("jump") and is_wall_clinging:
@@ -95,6 +98,6 @@ func _physics_process(_delta):
 		player_animations.play("jump")
 
 	# WALL HANG ANIMATION
-	if is_wall_clinging and velocity.y >= 0:
+	if is_wall_clinging and velocity.y >= 0 and not is_on_floor():
 		player_animations.play("hang")
 		

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://crfllkamwesmg"
-path="res://.godot/imported/GRASSBLOCKextraminicurve1.png-4b31dadc79318c5398860757b982f707.ctex"
+uid="uid://detgwlvqd5fcf"
+path="res://.godot/imported/Woodblock_tileset.png-fde9d1a491a801bd6c930fb6417eb310.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GRASSBLOCKextraminicurve1.png"
-dest_files=["res://.godot/imported/GRASSBLOCKextraminicurve1.png-4b31dadc79318c5398860757b982f707.ctex"]
+source_file="res://assets/tilesets/Woodblock_tileset.png"
+dest_files=["res://.godot/imported/Woodblock_tileset.png-fde9d1a491a801bd6c930fb6417eb310.ctex"]
 
 [params]
 

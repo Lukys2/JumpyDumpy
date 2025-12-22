@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://detgwlvqd5fcf"
-path="res://.godot/imported/WOODBLOCK.png-054a759f07ecbc9cab7d50b728676d08.ctex"
+uid="uid://crfllkamwesmg"
+path="res://.godot/imported/Grassblock_tileset.png-89e74c76903a8d3b169426d9cbb91e14.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://WOODBLOCK.png"
-dest_files=["res://.godot/imported/WOODBLOCK.png-054a759f07ecbc9cab7d50b728676d08.ctex"]
+source_file="res://assets/tilesets/Grassblock_tileset.png"
+dest_files=["res://.godot/imported/Grassblock_tileset.png-89e74c76903a8d3b169426d9cbb91e14.ctex"]
 
 [params]
 

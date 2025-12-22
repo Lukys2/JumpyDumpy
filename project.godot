@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="jumpydumpy2"
-run/main_scene="uid://efdjijdwlf6r"
+run/main_scene="uid://dtyndcids4xsl"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=720
 
 [input]
 
