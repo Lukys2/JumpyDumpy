@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=4 uid="uid://efdjijdwlf6r"]
+[gd_scene load_steps=46 format=4 uid="uid://efdjijdwlf6r"]
 
 [ext_resource type="Script" uid="uid://bkrtlmcwikx1f" path="res://scripts/game.gd" id="1_x2xxo"]
 [ext_resource type="Script" uid="uid://cxtc5krp2tra4" path="res://scripts/player.gd" id="2_2cbcq"]
@@ -378,9 +378,6 @@ terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/2 = SubResource("TileSetAtlasSource_e8heu")
 sources/3 = SubResource("TileSetAtlasSource_rvswv")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_x2xxo"]
-size = Vector2(2000.3469, 20)
-
 [node name="game" type="Node2D"]
 script = ExtResource("1_x2xxo")
 
@@ -406,6 +403,12 @@ target_position = Vector2(-84.995, 0)
 
 [node name="RayCastRight" type="RayCast2D" parent="player"]
 target_position = Vector2(57.88, 0)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+zoom = Vector2(0.5, 0.5)
+limit_left = 1000
+limit_right = 1000
+limit_smoothed = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("player")]
 layer = -1
@@ -433,20 +436,15 @@ visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 200.0
+offset_left = -174.0
 offset_top = -555.0
-offset_right = 832.0
-offset_bottom = -117.0
+offset_right = 1075.0
+offset_bottom = 612.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Level 1" type="Node2D" parent="."]
-
-[node name="Camera_lvl1" type="Camera2D" parent="Level 1"]
-position = Vector2(1051, 21)
-scale = Vector2(2.0308974, 6.332438)
-zoom = Vector2(0.635, 0.635)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="Level 1"]
 position = Vector2(83, 1190)
@@ -454,42 +452,16 @@ scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAANAPT/AwABAAEAAAAOAPT/AwABAAEAAAAPAPT/AwABAAEAAAAQAPT/AwABAAEAAAARAPT/AwABAAEAAAASAPT/AwABAAEAAAAMAPT/AwABAAEAAAALAPT/AwABAAEAAAAMAO7/AgACAAEAAAAMAO//AgACAAEAAAAMAPD/AgACAAEAAAAMAPH/AgACAAIAAAALAO3/AgAAAAAAAAALAO7/AgAAAAEAAAALAO//AgAAAAEAAAALAPD/AgAAAAEAAAALAPH/AgAAAAIAAAAMAO3/AgACAAAAAAASAOn/AgAAAAAAAAASAOr/AgAAAAEAAAASAOv/AgAAAAEAAAASAOz/AgAAAAEAAAASAO3/AgAAAAIAAAATAOn/AgACAAAAAAATAOr/AgACAAEAAAATAOv/AgACAAEAAAATAOz/AgACAAEAAAATAO3/AgACAAIAAAALAOb/AgAAAAEAAAALAOf/AgAAAAEAAAALAOj/AgAAAAEAAAALAOn/AgAAAAIAAAAMAOb/AgACAAEAAAAMAOf/AgACAAEAAAAMAOj/AgACAAEAAAAMAOn/AgACAAIAAAALAOX/AgAAAAAAAAAMAOX/AgACAAAAAAA=")
 tile_set = SubResource("TileSet_rvswv")
 
-[node name="Area_lvl1" type="Area2D" parent="Level 1"]
-position = Vector2(129.00002, 1048)
-scale = Vector2(0.8648499, 2.9017277)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level 1/Area_lvl1"]
-position = Vector2(1059.1438, -550)
-shape = SubResource("RectangleShape2D_x2xxo")
-
-[node name="Level 2" type="Node2D" parent="."]
-
-[node name="Camera_lvl2" type="Camera2D" parent="Level 2"]
-position = Vector2(1050.9999, -1094)
-scale = Vector2(2.0308974, 6.332438)
-zoom = Vector2(0.635, 0.635)
-metadata/_edit_lock_ = true
-
-[node name="TileMapLayer" type="TileMapLayer" parent="Level 2"]
-position = Vector2(83, 1190)
-scale = Vector2(2, 2)
-tile_map_data = PackedByteArray("AAAGAOH/AwAAAAAAAAAHAOH/AwABAAAAAAAIAOH/AwACAAAAAAAEAN3/AwAAAAAAAAAFAN3/AwABAAAAAAAEANz/AwAAAAAAAAAFANz/AwABAAAAAAAEANv/AwAAAAAAAAAFANv/AwABAAAAAAAbANz/AwAAAAAAAAAbAN3/AwAAAAEAAAAWANr/AwAAAAAAAAAWANv/AwAAAAEAAAAZANj/AwAAAAAAAAAZANn/AwAAAAEAAAAMANv/AwAAAAAAAAANANv/AwABAAAAAAAOANv/AwACAAAAAAAPANv/AwAAAAAAAAAQANv/AwABAAAAAAARANv/AwACAAAAAAASANf/AwABAAAAAAALANf/AwABAAAAAAALANT/AwABAAAAAAALANX/AwABAAAAAAALANb/AwABAAAAAAASANT/AwABAAAAAAASANX/AwABAAAAAAASANb/AwABAAAAAAAMANf/AwABAAAAAAARANf/AwABAAAAAAAOAOP/AwAAAAAAAAAPAOP/AwABAAAAAAAYAOP/AwAAAAAAAAAZAOP/AwABAAAAAAATAOD/AwAAAAAAAAAUAOD/AwABAAAAAAAVAOD/AwACAAAAAAA=")
-tile_set = SubResource("TileSet_rvswv")
-
-[node name="Area_lvl2" type="Area2D" parent="Level 2"]
-position = Vector2(147, -71)
-scale = Vector2(0.8648499, 2.9017277)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level 2/Area_lvl2"]
-position = Vector2(1047, -550)
-shape = SubResource("RectangleShape2D_x2xxo")
-
 [node name="Sfx&Music" type="Node" parent="."]
 
 [node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="Sfx&Music"]
 stream = ExtResource("19_2cbcq")
 volume_db = -9.87
 
-[connection signal="area_entered" from="Level 1/Area_lvl1" to="." method="_on_area_lvl_1_area_entered"]
-[connection signal="body_entered" from="Level 1/Area_lvl1" to="." method="_on_area_lvl_1_body_entered"]
-[connection signal="body_exited" from="Level 1/Area_lvl1" to="." method="_on_area_lvl_1_body_exited"]
+[node name="Level2" type="Node2D" parent="."]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="Level2"]
+position = Vector2(83, 1190)
+scale = Vector2(2, 2)
+tile_map_data = PackedByteArray("AAAUAOP/AgABAAEAAAAVAOP/AgABAAEAAAAVAOT/AgABAAIAAAAUAOT/AgABAAIAAAATAOT/AgAAAAIAAAATAOP/AgAAAAEAAAATAOL/AgAAAAAAAAAUAOL/AgABAAAAAAAVAOL/AgABAAAAAAAWAOP/AgABAAEAAAAWAOT/AgABAAIAAAAWAOL/AgABAAAAAAAXAOP/AgABAAEAAAAXAOT/AgABAAIAAAAXAOL/AgABAAAAAAAYAOP/AgABAAEAAAAYAOT/AgABAAIAAAAYAOL/AgABAAAAAAAZAOP/AgABAAEAAAAZAOT/AgABAAIAAAAZAOL/AgABAAAAAAAaAOP/AgABAAEAAAAaAOT/AgABAAIAAAAaAOL/AgABAAAAAAAbAOP/AgACAAEAAAAbAOT/AgACAAIAAAAbAOL/AgACAAAAAAAfANz/AgABAAEAAAAgANz/AgACAAEAAAAgAN3/AgACAAEAAAAfAN3/AgABAAEAAAAeAN3/AgAAAAEAAAAeANz/AgAAAAEAAAAeANv/AgAAAAAAAAAfANv/AgABAAAAAAAgANv/AgACAAAAAAAgAN7/AgACAAEAAAAfAN7/AgABAAEAAAAeAN7/AgAAAAEAAAAgAN//AgACAAEAAAAfAN//AgABAAEAAAAeAN//AgAAAAEAAAAgAOD/AgACAAEAAAAfAOD/AgABAAEAAAAeAOD/AgAAAAEAAAAgAOH/AgACAAIAAAAfAOH/AgABAAIAAAAeAOH/AgAAAAIAAAAMANf/AgABAAEAAAANANf/AgABAAEAAAANANj/AgABAAIAAAAMANj/AgABAAIAAAALANj/AgAAAAIAAAALANf/AgAAAAEAAAALANb/AgAAAAAAAAAMANb/AgABAAAAAAANANb/AgABAAAAAAAOANf/AgABAAEAAAAOANj/AgABAAIAAAAOANb/AgABAAAAAAAPANf/AgACAAEAAAAPANj/AgABAAEAAAAPANb/AgACAAAAAAAQANj/AgABAAEAAAAQANn/AgABAAIAAAAPANn/AgABAAIAAAAOANn/AgAAAAIAAAAQANf/AgAAAAAAAAARANj/AgABAAEAAAARANn/AgABAAIAAAARANf/AgABAAAAAAASANj/AgABAAEAAAASANn/AgABAAIAAAASANf/AgABAAAAAAATANj/AgABAAEAAAATANn/AgABAAIAAAATANf/AgABAAAAAAAUANj/AgABAAEAAAAUANn/AgABAAIAAAAUANf/AgABAAAAAAAVANj/AgABAAEAAAAVANn/AgABAAIAAAAVANf/AgABAAAAAAAWANj/AgACAAEAAAAWANn/AgACAAIAAAAWANf/AgACAAAAAAA=")
+tile_set = SubResource("TileSet_rvswv")
