@@ -325,37 +325,56 @@ texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/terrain_set = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:0/0/terrains_peering_bit/bottom_right_corner = 1
 0:1/0 = 0
 0:1/0/terrain_set = 0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:1/0/terrains_peering_bit/right_side = 1
+0:1/0/terrains_peering_bit/bottom_right_corner = 1
+0:1/0/terrains_peering_bit/top_right_corner = 1
 0:2/0 = 0
 0:2/0/terrain_set = 0
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:2/0/terrains_peering_bit/top_right_corner = 1
 1:2/0 = 0
 1:2/0/terrain_set = 0
 1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:2/0/terrains_peering_bit/top_left_corner = 1
+1:2/0/terrains_peering_bit/top_side = 1
+1:2/0/terrains_peering_bit/top_right_corner = 1
 1:1/0 = 0
 1:1/0/terrain_set = 0
+1:1/0/terrain = 1
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:0/0 = 0
 1:0/0/terrain_set = 0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0/terrains_peering_bit/bottom_right_corner = 1
+1:0/0/terrains_peering_bit/bottom_side = 1
+1:0/0/terrains_peering_bit/bottom_left_corner = 1
 2:0/0 = 0
 2:0/0/terrain_set = 0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:0/0/terrains_peering_bit/bottom_left_corner = 1
 2:1/0 = 0
 2:1/0/terrain_set = 0
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:1/0/terrains_peering_bit/bottom_left_corner = 1
+2:1/0/terrains_peering_bit/left_side = 1
+2:1/0/terrains_peering_bit/top_left_corner = 1
 2:2/0 = 0
 2:2/0/terrain_set = 0
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+2:2/0/terrains_peering_bit/top_left_corner = 1
 
 [sub_resource type="TileSet" id="TileSet_rvswv"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 terrain_set_0/mode = 0
-terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/name = "Grass 0"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+terrain_set_0/terrain_1/name = "Wood 1"
+terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/2 = SubResource("TileSetAtlasSource_e8heu")
 sources/3 = SubResource("TileSetAtlasSource_rvswv")
 
@@ -366,7 +385,7 @@ size = Vector2(2000.3469, 20)
 script = ExtResource("1_x2xxo")
 
 [node name="player" type="CharacterBody2D" parent="."]
-position = Vector2(1061, -375)
+position = Vector2(1056, 288)
 scale = Vector2(0.46867093, 0.46867093)
 script = ExtResource("2_2cbcq")
 metadata/_edit_group_ = true
@@ -382,9 +401,11 @@ animation = &"run"
 position = Vector2(-13.869019, -6.400879)
 shape = SubResource("RectangleShape2D_e2o6t")
 
-[node name="WallHangCheck" type="RayCast2D" parent="player"]
-position = Vector2(-74.67931, 57.609726)
-target_position = Vector2(0, 20)
+[node name="RayCastLeft" type="RayCast2D" parent="player"]
+target_position = Vector2(-84.995, 0)
+
+[node name="RayCastRight" type="RayCast2D" parent="player"]
+target_position = Vector2(57.88, 0)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("player")]
 layer = -1
@@ -430,7 +451,7 @@ zoom = Vector2(0.635, 0.635)
 [node name="TileMapLayer" type="TileMapLayer" parent="Level 1"]
 position = Vector2(83, 1190)
 scale = Vector2(2, 2)
-tile_map_data = PackedByteArray("AAAEAPT/AgABAAEAAAAFAPT/AgABAAEAAAAFAPX/AgABAAIAAAAEAPX/AgABAAIAAAADAPX/AgAAAAIAAAADAPT/AgAAAAEAAAADAPP/AgAAAAAAAAAEAPP/AgABAAAAAAAFAPP/AgABAAAAAAAGAPT/AgABAAEAAAAGAPX/AgABAAIAAAAGAPP/AgABAAAAAAAHAPT/AgABAAEAAAAHAPX/AgABAAIAAAAHAPP/AgABAAAAAAAIAPT/AgACAAEAAAAIAPX/AgACAAIAAAAIAPP/AgACAAAAAAANAPH/AgABAAEAAAAOAPH/AgABAAEAAAAOAPL/AgABAAIAAAANAPL/AgABAAIAAAAMAPL/AgAAAAIAAAAMAPH/AgAAAAEAAAAMAPD/AgAAAAAAAAANAPD/AgABAAAAAAAOAPD/AgABAAAAAAAPAPH/AgABAAEAAAAPAPL/AgABAAIAAAAPAPD/AgABAAAAAAAQAPH/AgABAAEAAAAQAPL/AgABAAIAAAAQAPD/AgABAAAAAAARAPH/AgABAAEAAAARAPL/AgABAAIAAAARAPD/AgABAAAAAAASAPH/AgABAAEAAAASAPL/AgABAAIAAAASAPD/AgABAAAAAAATAPH/AgACAAEAAAATAPL/AgACAAIAAAATAPD/AgACAAAAAAAEAOz/AgABAAAAAAAEAO3/AgABAAEAAAAEAO7/AgABAAIAAAAFAOz/AgABAAAAAAAFAO3/AgABAAEAAAAFAO7/AgABAAIAAAAGAOz/AgABAAAAAAAGAO3/AgABAAEAAAAGAO7/AgABAAIAAAAHAOz/AgACAAAAAAAHAO3/AgACAAEAAAAHAO7/AgACAAIAAAADAOz/AgAAAAAAAAADAO3/AgAAAAEAAAADAO7/AgAAAAIAAAANAOv/AgABAAEAAAAOAOv/AgABAAEAAAAOAOz/AgABAAIAAAANAOz/AgABAAIAAAAMAOz/AgAAAAIAAAAMAOv/AgAAAAEAAAAMAOr/AgAAAAAAAAANAOr/AgABAAAAAAAOAOr/AgABAAAAAAAPAOv/AgACAAEAAAAPAOz/AgACAAIAAAAPAOr/AgACAAAAAAAUAOj/AgABAAEAAAAVAOj/AgABAAEAAAAVAOn/AgABAAIAAAAUAOn/AgABAAIAAAATAOn/AgAAAAIAAAATAOj/AgAAAAEAAAATAOf/AgAAAAAAAAAUAOf/AgABAAAAAAAVAOf/AgABAAAAAAAWAOj/AgACAAEAAAAWAOn/AgACAAIAAAAWAOf/AgACAAAAAAA=")
+tile_map_data = PackedByteArray("AAANAPT/AwABAAEAAAAOAPT/AwABAAEAAAAPAPT/AwABAAEAAAAQAPT/AwABAAEAAAARAPT/AwABAAEAAAASAPT/AwABAAEAAAAMAPT/AwABAAEAAAALAPT/AwABAAEAAAAMAO7/AgACAAEAAAAMAO//AgACAAEAAAAMAPD/AgACAAEAAAAMAPH/AgACAAIAAAALAO3/AgAAAAAAAAALAO7/AgAAAAEAAAALAO//AgAAAAEAAAALAPD/AgAAAAEAAAALAPH/AgAAAAIAAAAMAO3/AgACAAAAAAASAOn/AgAAAAAAAAASAOr/AgAAAAEAAAASAOv/AgAAAAEAAAASAOz/AgAAAAEAAAASAO3/AgAAAAIAAAATAOn/AgACAAAAAAATAOr/AgACAAEAAAATAOv/AgACAAEAAAATAOz/AgACAAEAAAATAO3/AgACAAIAAAALAOb/AgAAAAEAAAALAOf/AgAAAAEAAAALAOj/AgAAAAEAAAALAOn/AgAAAAIAAAAMAOb/AgACAAEAAAAMAOf/AgACAAEAAAAMAOj/AgACAAEAAAAMAOn/AgACAAIAAAALAOX/AgAAAAAAAAAMAOX/AgACAAAAAAA=")
 tile_set = SubResource("TileSet_rvswv")
 
 [node name="Area_lvl1" type="Area2D" parent="Level 1"]

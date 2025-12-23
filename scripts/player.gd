@@ -17,7 +17,8 @@ var is_wall_clinging := false
 var wall_normal := Vector2.ZERO
 
 @onready var player_animations = $Sprite2D
-@onready var wall_hang_check = $WallHangCheck
+@onready var ray_left: RayCast2D = $RayCastLeft
+@onready var ray_right: RayCast2D = $RayCastRight
 
 
 func _physics_process(_delta):
@@ -84,25 +85,33 @@ func wall_jump():
 
 
 func handle_wall_cling():
-	if not is_on_floor():
-		var touching_wall = false
-		for i in range(get_slide_collision_count()):
-			var collision = get_slide_collision(i)
-			var normal = collision.get_normal()
-			if abs(normal.y) < 0.2:
-				touching_wall = true
-				wall_normal = normal
-				if velocity.y > 0:
-					velocity.y = min(velocity.y, 110)
-		is_wall_clinging = touching_wall
-	else:
+	# na zemi wall hang nechceme
+	if is_on_floor():
 		is_wall_clinging = false
-		
+		return
+
+	var touching_wall := false
+
+	if ray_left.is_colliding():
+		touching_wall = true
+		wall_normal = Vector2.RIGHT
+	elif ray_right.is_colliding():
+		touching_wall = true
+		wall_normal = Vector2.LEFT
+
+	is_wall_clinging = touching_wall
+
+	# zpomalení pádu po zdi
+	if is_wall_clinging and velocity.y > 0:
+		velocity.y = min(velocity.y, 110)
+
+	# wall jump
 	if Input.is_action_just_pressed("jump") and is_wall_clinging:
-		velocity.y = -450
-		velocity.x = 320 * sign(wall_normal.x)  # vždy správný směr
+		velocity.y = -600
+		velocity.x = 430 * wall_normal.x
 		is_wall_clinging = false
 		player_animations.play("jump")
+
 
 
 func update_animations():
