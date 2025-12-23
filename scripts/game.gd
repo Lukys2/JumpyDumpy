@@ -1,9 +1,8 @@
 extends Node2D
 
-@onready var transition = $Transition
-@onready var player = $player
+@onready var transition = $LOGIKA/Transition
 
-@onready var bgmusic = $"Sfx&Music/BackgroundMusic"
+@onready var bgmusic = $"LOGIKA/Sfx&Music/BackgroundMusic"
 
 func _ready():
 	bgmusic.play()
