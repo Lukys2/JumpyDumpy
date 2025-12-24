@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=4 uid="uid://efdjijdwlf6r"]
+[gd_scene load_steps=47 format=4 uid="uid://efdjijdwlf6r"]
 
 [ext_resource type="Script" uid="uid://bkrtlmcwikx1f" path="res://scripts/game.gd" id="1_x2xxo"]
 [ext_resource type="Script" uid="uid://cxtc5krp2tra4" path="res://scripts/player.gd" id="2_2cbcq"]
@@ -180,7 +180,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/0/path = NodePath("LOGIKA/Transition/ColorRect:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -192,7 +192,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Transition/ColorRect:visible")
+tracks/1/path = NodePath("LOGIKA/Transition/ColorRect:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -207,7 +207,7 @@ resource_name = "fade_in"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/0/path = NodePath("LOGIKA/Transition/ColorRect:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -219,7 +219,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Transition/ColorRect:visible")
+tracks/1/path = NodePath("LOGIKA/Transition/ColorRect:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -234,7 +234,7 @@ resource_name = "fade_out"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Transition/ColorRect:self_modulate")
+tracks/0/path = NodePath("LOGIKA/Transition/ColorRect:self_modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -246,7 +246,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Transition/ColorRect:visible")
+tracks/1/path = NodePath("LOGIKA/Transition/ColorRect:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -378,60 +378,50 @@ terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/2 = SubResource("TileSetAtlasSource_e8heu")
 sources/3 = SubResource("TileSetAtlasSource_rvswv")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cbcq"]
+size = Vector2(3242, 53)
+
 [node name="game" type="Node2D"]
 script = ExtResource("1_x2xxo")
 
-[node name="player" type="CharacterBody2D" parent="."]
+[node name="LOGIKA" type="Node2D" parent="."]
+
+[node name="player" type="CharacterBody2D" parent="LOGIKA"]
 position = Vector2(1056, 288)
 scale = Vector2(0.46867093, 0.46867093)
 script = ExtResource("2_2cbcq")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="player"]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="LOGIKA/player"]
 texture_filter = 1
 position = Vector2(-12.310864, 0)
 scale = Vector2(7.5705714, 8.34)
 sprite_frames = SubResource("SpriteFrames_80cx4")
 animation = &"run"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LOGIKA/player"]
 position = Vector2(-13.869019, -6.400879)
 shape = SubResource("RectangleShape2D_e2o6t")
 
-[node name="RayCastLeft" type="RayCast2D" parent="player"]
-target_position = Vector2(-84.995, 0)
+[node name="RayCastLeft" type="RayCast2D" parent="LOGIKA/player"]
+target_position = Vector2(-81.08032, 0)
 
-[node name="RayCastRight" type="RayCast2D" parent="player"]
-target_position = Vector2(57.88, 0)
+[node name="RayCastRight" type="RayCast2D" parent="LOGIKA/player"]
+target_position = Vector2(55.476074, 0)
 
-[node name="Camera2D" type="Camera2D" parent="player"]
+[node name="Camera2D" type="Camera2D" parent="LOGIKA/player"]
 zoom = Vector2(0.5, 0.5)
 limit_left = 1000
 limit_right = 1000
 limit_smoothed = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("player")]
-layer = -1
-script = ExtResource("16_hjqri")
-player = NodePath("../player")
-start_color = Color(0.18780133, 0.20314714, 0.32020316, 1)
-
-[node name="BackGround" type="ColorRect" parent="CanvasLayer"]
-z_index = -4096
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.47058824, 0.4392157, 0.9137255, 0)
-metadata/_edit_lock_ = true
-
-[node name="Transition" type="AnimationPlayer" parent="."]
+[node name="Transition" type="AnimationPlayer" parent="LOGIKA"]
+root_node = NodePath("../..")
 libraries = {
 &"": SubResource("AnimationLibrary_ojb7r")
 }
 
-[node name="ColorRect" type="ColorRect" parent="Transition"]
+[node name="ColorRect" type="ColorRect" parent="LOGIKA/Transition"]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -444,24 +434,50 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="Level 1" type="Node2D" parent="."]
+[node name="Sfx&Music" type="Node" parent="LOGIKA"]
 
-[node name="TileMapLayer" type="TileMapLayer" parent="Level 1"]
+[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="LOGIKA/Sfx&Music"]
+stream = ExtResource("19_2cbcq")
+volume_db = -9.87
+
+[node name="MAPA" type="Node2D" parent="."]
+
+[node name="Level 1" type="Node2D" parent="MAPA"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="MAPA/Level 1"]
 position = Vector2(83, 1190)
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAANAPT/AwABAAEAAAAOAPT/AwABAAEAAAAPAPT/AwABAAEAAAAQAPT/AwABAAEAAAARAPT/AwABAAEAAAASAPT/AwABAAEAAAAMAPT/AwABAAEAAAALAPT/AwABAAEAAAAMAO7/AgACAAEAAAAMAO//AgACAAEAAAAMAPD/AgACAAEAAAAMAPH/AgACAAIAAAALAO3/AgAAAAAAAAALAO7/AgAAAAEAAAALAO//AgAAAAEAAAALAPD/AgAAAAEAAAALAPH/AgAAAAIAAAAMAO3/AgACAAAAAAASAOn/AgAAAAAAAAASAOr/AgAAAAEAAAASAOv/AgAAAAEAAAASAOz/AgAAAAEAAAASAO3/AgAAAAIAAAATAOn/AgACAAAAAAATAOr/AgACAAEAAAATAOv/AgACAAEAAAATAOz/AgACAAEAAAATAO3/AgACAAIAAAAIAOr/AgABAAEAAAAJAOr/AgACAAEAAAAJAOv/AgACAAIAAAAIAOv/AgABAAIAAAAHAOv/AgABAAIAAAAHAOr/AgABAAEAAAAHAOn/AgABAAAAAAAIAOn/AgABAAAAAAAJAOn/AgACAAAAAAAGAOv/AgABAAIAAAAGAOr/AgABAAEAAAAGAOn/AgABAAAAAAAFAOv/AgABAAIAAAAFAOr/AgABAAEAAAAFAOn/AgACAAEAAAAEAOv/AgABAAIAAAAEAOr/AgABAAEAAAAEAOn/AgABAAEAAAADAOv/AgAAAAIAAAADAOr/AgABAAIAAAADAOn/AgABAAEAAAADAOj/AgABAAAAAAAEAOj/AgABAAAAAAAFAOj/AgACAAAAAAACAOr/AgABAAIAAAACAOn/AgABAAEAAAACAOj/AgACAAEAAAABAOr/AgABAAIAAAABAOn/AgABAAEAAAABAOj/AgABAAEAAAAAAOr/AgAAAAIAAAAAAOn/AgABAAIAAAAAAOj/AgABAAEAAAAAAOf/AgACAAEAAAABAOf/AgABAAAAAAACAOf/AgACAAAAAAD//+n/AgABAAIAAAD//+j/AgABAAEAAAD//+f/AgABAAEAAAD+/+n/AgAAAAIAAAD+/+j/AgABAAIAAAD+/+f/AgABAAEAAAD+/+b/AgABAAAAAAD//+b/AgABAAAAAAAAAOb/AgACAAAAAAD9/+j/AgABAAIAAAD9/+f/AgABAAEAAAD9/+b/AgABAAAAAAD8/+j/AgAAAAIAAAD8/+f/AgAAAAEAAAD8/+b/AgAAAAAAAAAJAOT/AgABAAEAAAAKAOT/AgABAAEAAAAKAOX/AgABAAIAAAAJAOX/AgABAAIAAAAIAOX/AgAAAAIAAAAIAOT/AgAAAAEAAAAIAOP/AgAAAAAAAAAJAOP/AgABAAAAAAAKAOP/AgABAAAAAAALAOT/AgABAAEAAAALAOX/AgABAAIAAAALAOP/AgABAAAAAAAMAOT/AgABAAEAAAAMAOX/AgABAAIAAAAMAOP/AgABAAAAAAANAOT/AgACAAEAAAANAOX/AgACAAIAAAANAOP/AgACAAAAAAA=")
 tile_set = SubResource("TileSet_rvswv")
 
-[node name="Sfx&Music" type="Node" parent="."]
+[node name="Level2" type="Node2D" parent="MAPA"]
 
-[node name="BackgroundMusic" type="AudioStreamPlayer2D" parent="Sfx&Music"]
-stream = ExtResource("19_2cbcq")
-volume_db = -9.87
-
-[node name="Level2" type="Node2D" parent="."]
-
-[node name="TileMapLayer" type="TileMapLayer" parent="Level2"]
+[node name="TileMapLayer" type="TileMapLayer" parent="MAPA/Level2"]
 position = Vector2(83, 1190)
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAAUAOP/AgABAAEAAAAVAOP/AgABAAEAAAAVAOT/AgABAAIAAAAUAOT/AgABAAIAAAATAOT/AgAAAAIAAAATAOP/AgAAAAEAAAATAOL/AgAAAAAAAAAUAOL/AgABAAAAAAAVAOL/AgABAAAAAAAWAOP/AgABAAEAAAAWAOT/AgABAAIAAAAWAOL/AgABAAAAAAAXAOP/AgABAAEAAAAXAOT/AgABAAIAAAAXAOL/AgABAAAAAAAYAOP/AgABAAEAAAAYAOT/AgABAAIAAAAYAOL/AgABAAAAAAAZAOP/AgABAAEAAAAZAOT/AgABAAIAAAAZAOL/AgABAAAAAAAaAOP/AgABAAEAAAAaAOT/AgABAAIAAAAaAOL/AgABAAAAAAAbAOP/AgACAAEAAAAbAOT/AgACAAIAAAAbAOL/AgACAAAAAAAfANz/AgABAAEAAAAgANz/AgACAAEAAAAgAN3/AgACAAEAAAAfAN3/AgABAAEAAAAeAN3/AgAAAAEAAAAeANz/AgAAAAEAAAAeANv/AgAAAAAAAAAfANv/AgABAAAAAAAgANv/AgACAAAAAAAgAN7/AgACAAEAAAAfAN7/AgABAAEAAAAeAN7/AgAAAAEAAAAgAN//AgACAAEAAAAfAN//AgABAAEAAAAeAN//AgAAAAEAAAAgAOD/AgACAAEAAAAfAOD/AgABAAEAAAAeAOD/AgAAAAEAAAAgAOH/AgACAAIAAAAfAOH/AgABAAIAAAAeAOH/AgAAAAIAAAAMANf/AgABAAEAAAANANf/AgABAAEAAAANANj/AgABAAIAAAAMANj/AgABAAIAAAALANj/AgAAAAIAAAALANf/AgAAAAEAAAALANb/AgAAAAAAAAAMANb/AgABAAAAAAANANb/AgABAAAAAAAOANf/AgABAAEAAAAOANj/AgABAAIAAAAOANb/AgABAAAAAAAPANf/AgACAAEAAAAPANj/AgABAAEAAAAPANb/AgACAAAAAAAQANj/AgABAAEAAAAQANn/AgABAAIAAAAPANn/AgABAAIAAAAOANn/AgAAAAIAAAAQANf/AgAAAAAAAAARANj/AgABAAEAAAARANn/AgABAAIAAAARANf/AgABAAAAAAASANj/AgABAAEAAAASANn/AgABAAIAAAASANf/AgABAAAAAAATANj/AgABAAEAAAATANn/AgABAAIAAAATANf/AgABAAAAAAAUANj/AgABAAEAAAAUANn/AgABAAIAAAAUANf/AgABAAAAAAAVANj/AgABAAEAAAAVANn/AgABAAIAAAAVANf/AgABAAAAAAAWANj/AgACAAEAAAAWANn/AgACAAIAAAAWANf/AgACAAAAAAA=")
 tile_set = SubResource("TileSet_rvswv")
+
+[node name="DeathZoneStart" type="Area2D" parent="MAPA"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MAPA/DeathZoneStart"]
+position = Vector2(1059, 677)
+shape = SubResource("RectangleShape2D_2cbcq")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="MAPA" node_paths=PackedStringArray("player")]
+layer = -1
+script = ExtResource("16_hjqri")
+player = NodePath("../../LOGIKA/player")
+start_color = Color(0.18780133, 0.20314714, 0.32020316, 1)
+
+[node name="BackGround" type="ColorRect" parent="MAPA/CanvasLayer"]
+z_index = -4096
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.47058824, 0.4392157, 0.9137255, 0)
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="MAPA/DeathZoneStart" to="LOGIKA/player" method="_on_death_zone_start_body_entered"]
